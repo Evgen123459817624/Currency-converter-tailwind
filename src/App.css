@@ -95,7 +95,7 @@
 }
 
 .converting-section .row2 {
-  @apply mt-5 mr-3 flex justify-end w-full h-full;
+  @apply mt-5 mr-3 flex justify-between w-full h-full;
 }
 
 .section2 {
@@ -120,7 +120,7 @@ main {
 }
 
 .fade-up {
-  animation: fadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+  animation: fadeUp 0.8s cubic-bezier(0.5, 0, 0.1, 1) both;
 }
 
 @keyframes fadeUp {
@@ -131,5 +131,35 @@ main {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+.result {
+  @apply text-[var(--text-second-color)] text-3xl font-bold ml-5;
+}
+
+.swap-btn {
+  transition: transform 0.3s ease;
+  z-index: 5;
+  transform: scale(1.2);
+}
+
+.swap-btn:hover {
+  transform: scale(1.1);
+}
+
+.swap-btn.animate {
+  animation: rotateSwapButton 0.5s linear;
+}
+
+@keyframes rotateSwapButton {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.5) rotate(90deg);
+  }
+  to {
+    transform: scale(1) rotate(180deg);
   }
 }

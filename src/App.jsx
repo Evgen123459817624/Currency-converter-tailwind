@@ -21,13 +21,12 @@ function App() {
       ([entry]) => {
         if (entry.isIntersecting) setVisible(true);
       },
-      { threshold: 0.2 }
+      { threshold: 0.5 }
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
 
-  // simple validation: amount is positive number; currencies are 3-letter strings
   function validate() {
     setError("");
     const num = parseFloat(amount.toString().replace(",", "."));
@@ -48,12 +47,10 @@ function App() {
     setResult(null);
     setError("");
 
-    // Normalize uppercase
     const from = fromCurr.toUpperCase();
     const to = toCurr.toUpperCase();
     const amt = parseFloat(amount.toString().replace(",", "."));
 
-    // Frankfurter endpoint: https://api.frankfurter.dev/latest?amount=100&from=USD&to=EUR
     const url = `https://api.frankfurter.dev/v1/latest?base=${encodeURIComponent(
       from
     )}&amount=${amt}&symbols=${encodeURIComponent(to)}`;
@@ -64,12 +61,11 @@ function App() {
         throw new Error(`Eroare server: ${res.status}`);
       }
       const data = await res.json();
-      // data.rates is an object: { "EUR": 92.34 } (value is converted amount)
+
       if (!data || !data.rates || typeof data.rates[to] === "undefined") {
         throw new Error("Răspuns neașteptat de la API.");
       }
       const converted = data.rates[to];
-      // păstrăm 4 zecimale max pentru afișare
       setResult({
         amount: amt,
         from,
@@ -87,11 +83,12 @@ function App() {
     }
   }
 
+  const [animate, setAnimate] = useState(false);
+
   function handleSwap() {
     setFromCurr(toCurr);
     setToCurr(fromCurr);
-    setResult(null);
-    setError("");
+    setAnimate(true);
   }
 
   return (
@@ -175,7 +172,8 @@ function App() {
               <button
                 title="Swap currencies"
                 onClick={handleSwap}
-                style={{ background: "transparent", border: "none" }}
+                onAnimationEnd={() => setAnimate(false)}
+                className={`swap-btn ${animate ? "animate" : ""}`}
               >
                 <SwapArrowIcon />
               </button>
