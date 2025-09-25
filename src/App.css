@@ -1,0 +1,135 @@
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+@import "tailwindcss";
+
+:root {
+  --main-color: hsl(0, 0%, 90%);
+  --secondary-color: hsl(0, 0%, 80%);
+  --background-color: rgb(5, 15, 76);
+  --text-color: rgb(100, 109, 128);
+  --text-highlight-color: rgb(49, 63, 90);
+  --text-second-color: hsl(0, 0%, 10%);
+  --button-color: rgb(1, 108, 224);
+  --button-highlight-color: rgba(7, 99, 198, 0.498);
+  --button-second-highlight-color: rgb(0, 85, 176);
+}
+
+.body {
+  @apply h-[100vh] m-0 p-0 box-border font-sans bg-[var(--background-color)] overflow-x-hidden;
+}
+
+.logo {
+  @apply text-[var(--main-color)] p-4 font-semibold text-2xl;
+}
+
+#navbar {
+  @apply flex z-10 justify-between items-center p-4 bg-[var(--background-color)] shadow-2xl sticky top-0;
+}
+
+#navbar button {
+  @apply text-[var(--main-color)] hover:bg-[var(--text-color)] font-semibold flex flex-nowrap px-5 py-2 rounded-lg cursor-pointer select-none;
+}
+
+#navbar ul {
+  @apply flex space-x-2 list-none flex-wrap justify-center;
+}
+
+#navbar ul li {
+  @apply cursor-pointer justify-items-center flex flex-nowrap;
+}
+
+.active {
+  @apply bg-[var(--button-color)];
+}
+
+.title {
+  @apply text-center mt-20 text-[var(--main-color)];
+}
+
+.title > h2 {
+  @apply text-4xl font-bold mb-5;
+}
+
+.converting-section {
+  @apply flex z-1 flex-col relative items-center mt-10 bg-[var(--main-color)] p-7 rounded-3xl shadow-lg w-[80%] justify-self-center;
+}
+
+.converting-section .row1 {
+  @apply flex items-center flex-row justify-center w-full;
+}
+
+.converting-section .selector-inputs {
+  @apply flex relative items-center flex-row grow;
+}
+
+.converting-section .selector-inputs svg {
+  @apply z-1 h-7.5 w-7.5 absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 mx-0 cursor-pointer text-[var(--background-color)] border-1 border-[var(--background-color)] rounded-full p-1.5 bg-[var(--main-color)];
+}
+
+.converting-section input {
+  @apply bg-transparent text-[var(--text-second-color)] p-2 w-full focus:outline-none text-xl font-bold;
+}
+
+.relative {
+  @apply flex flex-col bg-transparent border-[var(--seconday-color)] border-1 text-[var(--text-color)] rounded-lg p-3 w-99/100 m-2 focus:outline-none;
+}
+
+.quantity-input {
+  @apply mr-4;
+}
+
+#convert-button {
+  @apply shadow-xl text-[var(--main-color)] bg-[var(--button-color)] hover:bg-[var(--button-second-highlight-color)] font-semibold flex flex-nowrap px-5 py-2 rounded-lg cursor-pointer select-none w-[10em] justify-center;
+}
+
+.converting-section .row2 {
+  @apply mt-5 mr-3 flex justify-end w-full h-full;
+}
+
+.section2 {
+  @apply mt-20 relative text-center bg-[var(--main-color)] w-[140%] h-max rounded-t-[50%] mt-[-100px] flex justify-center;
+}
+
+.info-text {
+  @apply text-[var(--text-color)] w-[60%] text-xs p-5 absolute mt-[100px];
+}
+
+main {
+  @apply flex flex-col items-center;
+}
+
+.bg-img1 {
+  box-shadow: 0 10px 15px -3px rgb(0, 0, 0, 0.6);
+  @apply mb-[100px] w-[57%] h-[300px] object-cover mt-[250px] rounded-3xl bg-[url('./assets/img-bg-1.webp')] bg-no-repeat bg-cover flex items-end justify-start text-[var(--main-color)] text-xl font-semibold p-5;
+}
+
+.bg-img1 .left-text {
+  @apply p-5 rounded-lg text-[2rem] w-[50%] text-left;
+}
+
+.fade-up {
+  animation: fadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
