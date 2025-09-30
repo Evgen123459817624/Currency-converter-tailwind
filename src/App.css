@@ -16,7 +16,7 @@
 
 :root {
   --main-color: hsl(0, 0%, 90%);
-  --secondary-color: hsl(0, 0%, 80%);
+  --secondary-color: hsl(0, 0%, 85%);
   --background-color: rgb(5, 15, 76);
   --text-color: rgb(100, 109, 128);
   --text-highlight-color: rgb(49, 63, 90);
@@ -161,6 +161,7 @@ main {
 }
 
 #convert-button {
+  transition: scale 0.2s ease;
   @apply z-1 overflow-hidden relative shadow-xl text-[var(--main-color)] bg-[var(--button-color)] font-semibold flex flex-nowrap px-10 py-3 rounded-lg cursor-pointer select-none w-[10em] justify-center;
 }
 
@@ -195,8 +196,11 @@ main {
 .section3 {
   width: 100vw;
   overflow: hidden;
-  background: var(--button-highlight-color);
-  padding: 2rem 0;
+  background: linear-gradient(
+    to bottom,
+    var(--button-color),
+    var(--button-highlight-color)
+  );
 }
 
 .carousel-track {
@@ -209,8 +213,8 @@ main {
   width: 200px;
   height: 70px;
   flex-shrink: 0;
-  padding: 0px 10px;
-  margin: 25px 10px;
+  padding: 5px 10px;
+  margin: 25px 20px;
   border-radius: 1rem;
   cursor: pointer;
   @apply saturate-0;
@@ -223,4 +227,45 @@ main {
   100% {
     transform: translateX(-880px); /* 4 imagini × (200px width + 20px margin) */
   }
+}
+
+.section4 {
+  @apply flex text-center text-[var(--text-second-color)] flex-col items-center bg-[var(--main-color)] w-full h-max py-20 space-y-5;
+}
+
+.section4 .footer {
+  @apply flex space-x-10 flex-col text-lg;
+}
+
+.section4 .footer h2 {
+  @apply font-bold text-3xl m-0;
+}
+
+.section4 .footer h3 {
+  @apply font-semibold text-lg text-[var(--text-color)] mb-5;
+}
+
+.section4 .container {
+  width: min(70%, 1000px);
+  @apply flex space-x-10 text-left;
+}
+
+.section4 .container .item {
+  @apply bg-[var(--secondary-color)] rounded-lg p-10 shadow-lg;
+}
+
+.section4 .container .item .title {
+  @apply text-[var(--text-second-color)] font-bold text-lg mb-3 mt-0 flex items-start;
+}
+
+.section4 .container .item button {
+  @apply text-[var(--main-color)] bg-[var(--button-color)] hover:bg-[var(--button-second-highlight-color)] font-semibold flex flex-nowrap px-7 py-2 rounded-lg cursor-pointer select-none mt-5;
+}
+
+.section4 .container .item button .arrow {
+  transition: transform 0.2s ease-in-out;
+}
+
+.section4 .container .item button:hover .arrow {
+  transform: translateX(7px);
 }

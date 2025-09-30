@@ -29,13 +29,15 @@ function App() {
 
   function validate() {
     setError("");
-    const num = parseFloat(amount.toString().replace(",", "."));
+    const num = amount.toString().replace(",", ".");
     if (isNaN(num) || !(num > 0)) {
-      setError("Introdu o sumă validă (număr > 0).");
+      setError("Insert a valid amount of money");
+      setResult(null);
       return false;
     }
     if (!/^[A-Za-z]{3}$/.test(fromCurr) || !/^[A-Za-z]{3}$/.test(toCurr)) {
       setError("Codurile valutare trebuie să fie 3 litere (ex: USD, EUR).");
+      setResult(null);
       return false;
     }
     return true;
@@ -49,7 +51,7 @@ function App() {
 
     const from = fromCurr.toUpperCase();
     const to = toCurr.toUpperCase();
-    const amt = parseFloat(amount.toString().replace(",", "."));
+    const amt = amount.toString().replace(",", ".");
 
     const url = `https://api.frankfurter.dev/v1/latest?base=${encodeURIComponent(
       from
@@ -284,6 +286,45 @@ function App() {
               src="https://www.vistaprint.com/news/wp-content/uploads/sites/14/2021/11/Vista_Color.png"
               alt=""
             />
+          </div>
+        </div>
+
+        <div className="section4">
+          <div className="footer">
+            <h2>Currency information</h2>
+            <h3>Learn more about the most popular currency pairs</h3>
+          </div>
+          <div className="container">
+            <div className="item">
+              <div className="title">
+                <h4>USD - US Dollar</h4>
+              </div>
+              <div className="content">
+                <p>
+                  Our currency rankings show that the most popular US Dollar
+                  exchange rate is the USD to USD rate. The currency code for US
+                  Dollars is USD. The currency symbol is $.
+                </p>
+                <button>
+                  US Dollar &nbsp; <span className="arrow"> → </span>{" "}
+                </button>
+              </div>
+            </div>
+            <div className="item">
+              <div className="title">
+                <h4>EUR - Euro</h4>
+              </div>
+              <div className="content">
+                <p>
+                  Our currency rankings show that the most popular Euro exchange
+                  rate is the EUR to USD rate. The currency code for Euros is
+                  EUR. The currency symbol is €
+                </p>
+                <button>
+                  Euro &nbsp; <span className="arrow"> → </span>{" "}
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </main>
