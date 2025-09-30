@@ -90,10 +90,6 @@
   @apply mr-4;
 }
 
-#convert-button {
-  @apply shadow-xl text-[var(--main-color)] bg-[var(--button-color)] hover:bg-[var(--button-second-highlight-color)] font-semibold flex flex-nowrap px-5 py-2 rounded-lg cursor-pointer select-none w-[10em] justify-center;
-}
-
 .converting-section .row2 {
   @apply mt-5 mr-3 flex justify-between w-full h-full;
 }
@@ -161,5 +157,70 @@ main {
   }
   to {
     transform: scale(1) rotate(180deg);
+  }
+}
+
+#convert-button {
+  @apply z-1 overflow-hidden relative shadow-xl text-[var(--main-color)] bg-[var(--button-color)] font-semibold flex flex-nowrap px-10 py-3 rounded-lg cursor-pointer select-none w-[10em] justify-center;
+}
+
+#convert-button::before {
+  @apply z-[-1] content-[''] absolute top-[-160%] w-[105%] h-[420%] rounded-full;
+
+  background: conic-gradient(#002342, #00f2fe, #38ef7d, #002342);
+  animation: spin 3s linear infinite;
+}
+
+#convert-button::after {
+  @apply content-[''] absolute inset-[3px] bg-[var(--background-color)] rounded-lg z-[-1];
+}
+
+#convert-button:hover {
+  @apply scale-105 transition duration-200;
+}
+
+#convert-button:active {
+  @apply scale-95 transition duration-100;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.section3 {
+  width: 100vw;
+  overflow: hidden;
+  background: var(--button-highlight-color);
+  padding: 2rem 0;
+}
+
+.carousel-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 40s linear infinite;
+}
+
+.carousel-track img {
+  width: 200px;
+  height: 70px;
+  flex-shrink: 0;
+  padding: 0px 10px;
+  margin: 25px 10px;
+  border-radius: 1rem;
+  cursor: pointer;
+  @apply saturate-0;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-880px); /* 4 imagini × (200px width + 20px margin) */
   }
 }

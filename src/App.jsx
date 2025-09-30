@@ -231,6 +231,61 @@ function App() {
             </div>
           </div>
         </div>
+
+        <div className="section3">
+          <div className="carousel-track">
+            <img
+              src="https://images.g2crowd.com/uploads/product/image/84fd5bd582809f20ff5682d2746ffa82/shopify.png"
+              alt=""
+            />
+            <img
+              src="https://s3-eu-west-1.amazonaws.com/clearbooks-marketing/media-centre/MediaCentre/clear-books/CMYK/logo/clear-books-logo-cmyk.png"
+              alt=""
+            />
+            <img
+              src="https://www.vistaprint.com/news/wp-content/uploads/sites/14/2021/11/Vista_Color.png"
+              alt=""
+            />
+            <img
+              src="https://s3-us-west-1.amazonaws.com/partnerpage.prod/media/directories/images/a1d29c93-cf90-4c74-813c-1844a22a30e6/a28d4e39-fdf6-4bf9-8dc9-7f0937a042fa.png"
+              alt=""
+            />
+
+            {/* copying the images to create an infinite loop effect */}
+
+            <img
+              src="https://images.g2crowd.com/uploads/product/image/84fd5bd582809f20ff5682d2746ffa82/shopify.png"
+              alt=""
+            />
+            <img
+              src="https://s3-eu-west-1.amazonaws.com/clearbooks-marketing/media-centre/MediaCentre/clear-books/CMYK/logo/clear-books-logo-cmyk.png"
+              alt=""
+            />
+            <img
+              src="https://www.vistaprint.com/news/wp-content/uploads/sites/14/2021/11/Vista_Color.png"
+              alt=""
+            />
+            <img
+              src="https://s3-us-west-1.amazonaws.com/partnerpage.prod/media/directories/images/a1d29c93-cf90-4c74-813c-1844a22a30e6/a28d4e39-fdf6-4bf9-8dc9-7f0937a042fa.png"
+              alt=""
+            />
+
+            {/* copying the images to create an infinite loop effect */}
+
+            <img
+              src="https://images.g2crowd.com/uploads/product/image/84fd5bd582809f20ff5682d2746ffa82/shopify.png"
+              alt=""
+            />
+            <img
+              src="https://s3-eu-west-1.amazonaws.com/clearbooks-marketing/media-centre/MediaCentre/clear-books/CMYK/logo/clear-books-logo-cmyk.png"
+              alt=""
+            />
+            <img
+              src="https://www.vistaprint.com/news/wp-content/uploads/sites/14/2021/11/Vista_Color.png"
+              alt=""
+            />
+          </div>
+        </div>
       </main>
     </div>
   );
