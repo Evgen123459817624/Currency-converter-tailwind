@@ -18,6 +18,7 @@
   --main-color: hsl(0, 0%, 90%);
   --secondary-color: hsl(0, 0%, 85%);
   --background-color: rgb(5, 15, 76);
+  --background-secondary-color: rgb(6, 20, 117);
   --text-color: rgb(100, 109, 128);
   --text-highlight-color: rgb(49, 63, 90);
   --text-second-color: hsl(0, 0%, 10%);
@@ -27,7 +28,12 @@
 }
 
 .body {
-  @apply h-[100vh] m-0 p-0 box-border font-sans bg-[var(--background-color)] overflow-x-hidden;
+  background: linear-gradient(
+    to bottom right,
+    var(--background-color),
+    var(--background-secondary-color)
+  );
+  @apply h-[100vh] m-0 p-0 box-border font-sans overflow-x-hidden;
 }
 
 .logo {
@@ -39,7 +45,7 @@
 }
 
 #navbar button {
-  @apply text-[var(--main-color)] hover:bg-[var(--text-color)] font-semibold flex flex-nowrap px-5 py-2 rounded-lg cursor-pointer select-none;
+  @apply text-[var(--main-color)] hover:bg-[var(--button-second-highlight-color)] font-semibold flex flex-nowrap px-5 py-2 rounded-lg cursor-pointer select-none;
 }
 
 #navbar ul {
@@ -195,6 +201,7 @@ main {
 
 .section3 {
   width: 100vw;
+  height: 140px;
   overflow: hidden;
   background: linear-gradient(
     to bottom,
@@ -207,6 +214,8 @@ main {
   display: flex;
   width: max-content;
   animation: scroll 40s linear infinite;
+  height: max-content;
+  align-items: center;
 }
 
 .carousel-track img {
@@ -214,7 +223,7 @@ main {
   height: 70px;
   flex-shrink: 0;
   padding: 5px 10px;
-  margin: 25px 20px;
+  margin: 30px 20px;
   border-radius: 1rem;
   cursor: pointer;
   @apply saturate-0;
@@ -230,15 +239,15 @@ main {
 }
 
 .section4 {
-  @apply flex text-center text-[var(--text-second-color)] flex-col items-center bg-[var(--main-color)] w-full h-max py-20 space-y-5;
+  @apply flex text-center text-[var(--text-second-color)] flex-col items-center bg-[var(--main-color)] w-full h-max py-20 mt-[-20px];
 }
 
 .section4 .footer {
-  @apply flex space-x-10 flex-col text-lg;
+  @apply flex flex-col text-lg mt-[-50px];
 }
 
 .section4 .footer h2 {
-  @apply font-bold text-3xl m-0;
+  @apply font-bold text-3xl m-0 text-[var(--text-second-color)];
 }
 
 .section4 .footer h3 {
@@ -268,4 +277,50 @@ main {
 
 .section4 .container .item button:hover .arrow {
   transform: translateX(7px);
+}
+
+.footer {
+  @apply px-5 pt-20 pb-10 text-[var(--main-color)] flex justify-evenly w-full;
+}
+
+.footer .col {
+  opacity: 0;
+  animation: slideUpFade 0.6s ease forwards;
+  @apply flex flex-col;
+}
+
+.footer .col h2 {
+  @apply text-lg font-semibold mb-3;
+}
+
+.footer .col span {
+  @apply mb-2 text-xs;
+}
+
+.footer .col span:hover {
+  @apply decoration-1 underline cursor-pointer;
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.footer .col:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.footer .col:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.footer .col:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.footer .col:nth-child(4) {
+  animation-delay: 0.8s;
 }

@@ -7,9 +7,11 @@ import React, { useRef, useEffect, useState } from "react";
 function App() {
   const ref = useRef();
   const [visible, setVisible] = useState(false);
+  const footerRef = useRef();
+  const [footerVisible, setFooterVisible] = useState(false);
 
   // Form state
-  const [amount, setAmount] = useState("");
+  const [amount, setAmount] = useState(100);
   const [fromCurr, setFromCurr] = useState("USD");
   const [toCurr, setToCurr] = useState("EUR");
   const [result, setResult] = useState(null);
@@ -25,6 +27,17 @@ function App() {
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const footerObserver = new window.IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setFooterVisible(true);
+      },
+      { threshold: 0.1 }
+    );
+    if (footerRef.current) footerObserver.observe(footerRef.current);
+    return () => footerObserver.disconnect();
   }, []);
 
   function validate() {
@@ -325,6 +338,81 @@ function App() {
                 </button>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className={`${footerVisible ? "footer" : ""}`} ref={footerRef}>
+          <div className="col">
+            <h2>Transfer Money</h2>
+            <span>Send Money Online</span>
+            <span>Send Money to India</span>
+            <span>Send Money to Pakistan</span>
+            <span>Send Money to Mexico</span>
+            <span>Send Money to Japan</span>
+            <span>Send Money to the UK</span>
+            <span>Send Money to Canada</span>
+            <span>Send Money to Australia</span>
+            <span>Send Money to New Zealand</span>
+            <span>Send Money to Mobile Wallet</span>
+            <span>Large Money Transfer</span>
+            <span>Transfer speed</span>
+            <span>Transfer fees</span>
+            <span>Security</span>
+            <span>Report fraud</span>
+            <span>Trustpilot Reviews</span>
+          </div>
+          <div className="col">
+            <h2>XE Business</h2>
+            <span>Xe Business</span>
+            <span>Check Send Rates</span>
+            <span>International Business Payments</span>
+            <span>Spot Transfers</span>
+            <span>Same Currency Transfer</span>
+            <span>Risk Management</span>
+            <span>Forward Contracts</span>
+            <span>Limit Orders</span>
+            <span>Enterprise Resource Planning</span>
+            <span>Currency Data API</span>
+            <span>Payments API</span>
+            <span>Mass Payments</span>
+            <span>Payment Methods</span>
+            <span>Business Payroll</span>
+            <span>User Roles</span>
+            <span>Affiliate Partner Program</span>
+          </div>
+          <div className="col">
+            <h2>Apps</h2>
+            <span>Money Transfer & Currency Apps</span>
+            <span>Android Money Transfer App</span>
+            <span>iOS Money Transfer App</span>
+            <h2 className="mt-6">Tools & Resources</h2>
+            <span>Blog</span>
+            <span>Currency Converter</span>
+            <span>Currency Charts</span>
+            <span>Historical Currency Rates</span>
+            <span>Currency Encyclopedia</span>
+            <span>Currency Rate Alerts</span>
+            <span>Currency Newsletters</span>
+            <span>IBAN Calculator</span>
+            <span>Invoice generator</span>
+            <span>Mortgage Calculator</span>
+            <span>SWIFT/BIC code lookup</span>
+          </div>
+          <div className="col">
+            <h2>Company Info</h2>
+            <span>About Us</span>
+            <span>Partnerships</span>
+            <span>Careers</span>
+            <span>Help Center</span>
+            <span>Dedicated support</span>
+            <span>Site Map</span>
+            <span>Legal</span>
+            <span>Privacy</span>
+            <span>Cookie Policy</span>
+            <span>Consent Manager</span>
+            <span>Money Transfer Information</span>
+            <span>File a Complaint</span>
+            <span>Accessibility</span>
           </div>
         </div>
       </main>
